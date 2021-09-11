@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,14 +16,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
+        // Create new dice object with 6 slides and Roll it
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        val resultTextView : TextView = findViewById(R.id.textView)
+        // Update the screen with the text of diceRoll
+        val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
     }
 }
-class Dice(private val numSlides : Int) {
-    fun roll() : Int {
-        return(1..numSlides).random()
+
+class Dice(private val numSlides: Int) {
+    fun roll(): Int {
+        return (1..numSlides).random()
     }
 }
